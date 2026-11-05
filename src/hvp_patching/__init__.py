@@ -5,7 +5,6 @@ from .estimators import (
     activation_patching,
     attribution_patching,
     hvp,
-    integrated_gradients,
     multi_step_hvp,
 )
 
@@ -15,6 +14,5 @@ __all__ = [
     "activation_patching",
     "attribution_patching",
     "hvp",
-    "integrated_gradients",
     "multi_step_hvp",
 ]

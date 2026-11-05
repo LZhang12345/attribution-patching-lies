@@ -3,8 +3,8 @@
 ## What this release contains
 
 The package provides the paper's HVP and MS-HVP formulas, a first-order AtP
-implementation, direct endpoint evaluation, and midpoint IG along the same
-isolated component path. It also includes attention-head hooks, a runner for
+implementation and direct endpoint evaluation for accuracy checks. Other
+baseline methods are not bundled. It also includes attention-head hooks, a runner for
 user-supplied prompt pairs, and the isolated-edge MIB scoring core.
 
 The cubic demo and miniature decoder tests are reproducible on CPU without
@@ -65,11 +65,6 @@ for graph construction and evaluation, and retain the exact upstream commit,
 dataset revision, split, edge selection rule, and evaluator settings with the
 results. The selection distinction is specified in the circuit-construction
 appendix of [Mueller et al., MIB](https://proceedings.mlr.press/v267/mueller25a.html).
-
-The component-level midpoint IG in this package interpolates an isolated
-activation. MIB's EAP-IG baseline interpolates inputs to obtain edge scores.
-They have different paths and should not be treated as interchangeable
-implementations of a benchmark baseline.
 
 ## Regenerating the README plot
 

@@ -132,23 +132,3 @@ def multi_step_hvp(metric_fn: Metric, clean: Tensor, corrupt: Tensor, steps: int
         )
         total = total + first + correction
     return total.detach()
-
-
-def integrated_gradients(
-    metric_fn: Metric, clean: Tensor, corrupt: Tensor, steps: int = 10
-) -> Tensor:
-    """Midpoint quadrature along the same isolated activation path.
-
-    This component-level baseline differs from input-level EAP-IG used by
-    MIB. Finite quadrature error is retained.
-    """
-    _steps(steps)
-    base, delta = _endpoints(clean, corrupt)
-    segment = delta / steps
-    total = torch.zeros((), dtype=base.dtype, device=base.device)
-    for k in range(steps):
-        first, _ = _terms(
-            metric_fn, base + ((k + 0.5) / steps) * delta, segment, second_order=False
-        )
-        total = total + first
-    return total.detach()

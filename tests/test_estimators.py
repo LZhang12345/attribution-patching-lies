@@ -5,7 +5,6 @@ from hvp_patching import (
     activation_patching,
     attribution_patching,
     hvp,
-    integrated_gradients,
     multi_step_hvp,
 )
 
@@ -29,7 +28,6 @@ def test_quadratic_matches_direct_patching():
     torch.testing.assert_close(result.estimate, truth)
     for steps in (1, 2, 5):
         torch.testing.assert_close(multi_step_hvp(metric, clean, corrupt, steps), truth)
-        torch.testing.assert_close(integrated_gradients(metric, clean, corrupt, steps), truth)
 
 
 def test_direct_patching_evaluates_the_supplied_endpoint_without_reconstruction():
@@ -50,9 +48,7 @@ def test_cubic_remainder_matches_closed_form(steps):
         return a[0].pow(3)
 
     ms_error = 1 - multi_step_hvp(metric, clean, corrupt, steps).item()
-    ig_error = 1 - integrated_gradients(metric, clean, corrupt, steps).item()
     assert ms_error == pytest.approx(1 / steps**2, abs=1e-13)
-    assert ig_error == pytest.approx(1 / (4 * steps**2), abs=1e-13)
 
 
 def test_k1_is_hvp_and_patch_direction_is_corrupt_minus_clean():

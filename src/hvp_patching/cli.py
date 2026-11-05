@@ -8,7 +8,7 @@ from pathlib import Path
 
 import torch
 
-from .estimators import activation_patching, hvp, integrated_gradients, multi_step_hvp
+from .estimators import activation_patching, hvp, multi_step_hvp
 
 
 def demo() -> dict[str, float]:
@@ -26,7 +26,6 @@ def demo() -> dict[str, float]:
         "attribution_patching": result.atp.item(),
         "hvp": result.estimate.item(),
         "ms_hvp_k5": multi_step_hvp(metric, clean, corrupt, steps=5).item(),
-        "ig_midpoint_s10": integrated_gradients(metric, clean, corrupt, steps=10).item(),
     }
 
 
@@ -41,7 +40,6 @@ def main() -> None:
     benchmark.add_argument("--heads", required=True, help="comma-separated layer:head pairs")
     benchmark.add_argument("--position", type=int, default=-1)
     benchmark.add_argument("--steps", type=int, default=5)
-    benchmark.add_argument("--ig-steps", type=int, default=10)
     benchmark.add_argument("--device", default="cpu")
     benchmark.add_argument("--cache-dir", type=Path)
     benchmark.add_argument("--output", type=Path, required=True)

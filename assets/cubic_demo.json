@@ -4,8 +4,7 @@
     "activation_patching": 3.2,
     "attribution_patching": 1.0,
     "hvp": 3.0,
-    "ms_hvp_k5": 3.192,
-    "ig_midpoint_s10": 3.1995000000000005
+    "ms_hvp_k5": 3.192
   },
   "steps": [
     1,

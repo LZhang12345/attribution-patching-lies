@@ -53,7 +53,6 @@ Activation patching     3.2000
 Attribution patching    1.0000
 HVP                     3.0000
 MS-HVP, K=5             3.1920
-IG, midpoint S=10       3.1995
 ```
 
 <details>
@@ -122,7 +121,6 @@ The quadratic term also helps inspect the original score. `result.exposure` comp
 | AtP | Gradient at the clean endpoint | One gradient evaluation |
 | HVP | Gradient and directional curvature | One gradient evaluation plus one HVP |
 | MS-HVP | Gradient and directional curvature at each path segment | $K$ gradient evaluations and $K$ HVPs |
-| IG reference | Gradients along the same path | $S$ gradient evaluations; midpoint quadrature |
 | Activation patching | Direct endpoint evaluation | Clean and patched forward evaluations |
 
 This table counts derivative queries, not wall-clock speedups. Correcting multiple isolated components requires their separate directional corrections. Gradients at a shared base point can be reused by a specialized runner. See [the method notes](docs/method.md) for the exposure diagnostic, zero denominators, and the MS-HVP guarantee.
@@ -144,20 +142,19 @@ python -m hvp_patching heads \
   --pairs examples/ioi_pairs.jsonl \
   --heads 8:6,9:9 \
   --steps 5 \
-  --ig-steps 10 \
   --device cpu \
   --output outputs/gpt2_heads.json
 ```
 
 Use `--device cuda` for a GPU and `--revision <commit>` to fix a model revision. The adapter uses eager attention for second derivatives. It checks each coordinate endpoint against an independent direct head replacement and records model revision, metric, intervention direction, library versions, raw scores, and absolute errors.
 
-The included pairs demonstrate the interface; they are not the paper's full evaluation cohorts. See [reproduction and MIB](docs/reproduction.md) for the released scope, split conventions, and the distinction between component-level IG and MIB's EAP-IG.
+The included pairs demonstrate the interface; they are not the paper's full evaluation cohorts. This release focuses on HVP/MS-HVP, with AtP as the first-order term and direct activation patching for accuracy checks. It does not bundle other baseline methods. See [reproduction and MIB](docs/reproduction.md) for the released scope and split conventions.
 
 ## Repository guide
 
 | Path | Contents |
 | :--- | :--- |
-| [`src/hvp_patching/estimators.py`](src/hvp_patching/estimators.py) | AtP, HVP, MS-HVP, direct activation patching, and an IG reference |
+| [`src/hvp_patching/estimators.py`](src/hvp_patching/estimators.py) | HVP and MS-HVP, with first-order terms and direct endpoint evaluation |
 | [`src/hvp_patching/heads.py`](src/hvp_patching/heads.py) | Attention-head hooks for GPT-2 and Llama-style projection layouts |
 | [`src/hvp_patching/benchmark.py`](src/hvp_patching/benchmark.py) | Prompt-pair benchmark runner and endpoint validation |
 | [`src/hvp_patching/mib.py`](src/hvp_patching/mib.py) | Original isolated-edge scoring core, work units, and record validation |

@@ -16,6 +16,7 @@ def test_installed_demo_cli():
     values = json.loads(result.stdout)
     assert values["activation_patching"] == pytest.approx(3.2)
     assert values["ms_hvp_k5"] == pytest.approx(3.192)
+    assert set(values) == {"activation_patching", "attribution_patching", "hvp", "ms_hvp_k5"}
 
 
 def test_head_cli_records_metadata_and_does_not_overwrite(tmp_path):
@@ -70,8 +71,6 @@ def test_head_cli_records_metadata_and_does_not_overwrite(tmp_path):
         "0:0",
         "--steps",
         "2",
-        "--ig-steps",
-        "2",
         "--output",
         str(output),
     ]
@@ -79,9 +78,17 @@ def test_head_cli_records_metadata_and_does_not_overwrite(tmp_path):
     payload = json.loads(output.read_text())
     assert len(payload["records"]) == 1
     assert payload["metadata"]["attention"] == "eager"
-    assert payload["metadata"]["ig_quadrature"] == "midpoint"
     assert payload["metadata"]["direction"] == "corrupt-minus-clean; expansion at clean"
-    assert set(payload["mean_absolute_error"]) == {"atp", "hvp", "ms_hvp", "ig_midpoint"}
+    assert set(payload["mean_absolute_error"]) == {"atp", "hvp", "ms_hvp"}
+    assert set(payload["records"][0]) == {
+        "prompt_index",
+        "head",
+        "activation_patching",
+        "atp",
+        "quadratic_correction",
+        "hvp",
+        "ms_hvp",
+    }
     before = output.read_bytes()
     repeated = subprocess.run(command, capture_output=True, text=True)
     assert repeated.returncode != 0

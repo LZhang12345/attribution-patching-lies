@@ -10,13 +10,11 @@ from pathlib import Path
 import torch
 
 from . import __version__
-from .estimators import activation_patching, hvp, integrated_gradients, multi_step_hvp
+from .estimators import activation_patching, hvp, multi_step_hvp
 from .heads import Head, HeadInterventions
 
 
-def score_heads(
-    adapter, clean, corrupt, heads, correct, counter, position=-1, steps=5, ig_steps=10
-):
+def score_heads(adapter, clean, corrupt, heads, correct, counter, position=-1, steps=5):
     metric = adapter.metric(clean, corrupt, heads, correct, counter, position)
     base = torch.zeros(len(heads), dtype=adapter.dtype, device=adapter.device)
     records = []
@@ -38,7 +36,6 @@ def score_heads(
                 "quadratic_correction": result.correction.item(),
                 "hvp": result.estimate.item(),
                 "ms_hvp": multi_step_hvp(metric, base, endpoint, steps).item(),
-                "ig_midpoint": integrated_gradients(metric, base, endpoint, ig_steps).item(),
             }
         )
     return records
@@ -93,7 +90,6 @@ def run_head_benchmark(args):
             counter[0],
             args.position,
             args.steps,
-            args.ig_steps,
         )
         output.extend({"prompt_index": index, **score} for score in scores)
     metadata = {
@@ -111,14 +107,12 @@ def run_head_benchmark(args):
         "direction": "corrupt-minus-clean; expansion at clean",
         "position": args.position,
         "steps": args.steps,
-        "ig_steps": args.ig_steps,
-        "ig_quadrature": "midpoint",
         "pairs": pairs,
         "elapsed_seconds": time.perf_counter() - started,
     }
     mae = {
         method: sum(abs(row[method] - row["activation_patching"]) for row in output) / len(output)
-        for method in ("atp", "hvp", "ms_hvp", "ig_midpoint")
+        for method in ("atp", "hvp", "ms_hvp")
     }
     payload = {"metadata": metadata, "mean_absolute_error": mae, "records": output}
     args.output.parent.mkdir(parents=True, exist_ok=True)
