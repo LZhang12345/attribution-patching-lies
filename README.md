@@ -165,12 +165,11 @@ The tests check the quadratic correction, the cubic $1/K^2$ remainder, the direc
 If this code is useful in your work, please cite our paper:
 
 ```bibtex
-@inproceedings{zhang2026attribution,
-  title     = {When Attribution Patching Lies: Diagnosis and a Second-Order Correction},
-  author    = {Zhang, Luyang and Wang, Jialu},
-  booktitle = {Advances in Neural Information Processing Systems},
-  year      = {2026},
-  url       = {https://arxiv.org/abs/2606.09899}
+@article{zhang2026attribution,
+  title={When Attribution Patching Lies: Diagnosis and a Second-Order Correction},
+  author={Zhang, Luyang and Wang, Jialu},
+  journal={arXiv preprint arXiv:2606.09899},
+  year={2026}
 }
 ```
 
