@@ -12,7 +12,7 @@
 [![Paper](https://img.shields.io/badge/arXiv-2606.09899-b31b1b?style=flat-square)](https://arxiv.org/abs/2606.09899)
 [![Conference](https://img.shields.io/badge/NeurIPS-2026-6d5efc?style=flat-square)](https://arxiv.org/abs/2606.09899)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776ab?style=flat-square&logo=python&logoColor=white)](pyproject.toml)
-[![Tests](https://img.shields.io/github/actions/workflow/status/LZhang12345/attribution-patching-lies/tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/LZhang12345/attribution-patching-lies/actions/workflows/tests.yml)
+[![CPU tests](https://github.com/LZhang12345/attribution-patching-lies/actions/workflows/tests.yml/badge.svg)](https://github.com/LZhang12345/attribution-patching-lies/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/License-MIT-19a98c?style=flat-square)](LICENSE)
 
 [Paper](https://arxiv.org/abs/2606.09899) · [Quick start](#quick-start) · [Method](#how-it-works) · [Model example](#try-it-on-attention-heads) · [Documentation](docs/method.md) · [Citation](#citation)
