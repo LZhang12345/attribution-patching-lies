@@ -13,13 +13,13 @@ authors:
 repository-code: "https://github.com/LZhang12345/attribution-patching-lies"
 url: "https://arxiv.org/abs/2606.09899"
 preferred-citation:
-  type: article
+  type: conference-paper
   title: "When Attribution Patching Lies: Diagnosis and a Second-Order Correction"
   authors:
     - family-names: Zhang
       given-names: Luyang
     - family-names: Wang
       given-names: Jialu
-  journal: "arXiv preprint arXiv:2606.09899"
+  collection-title: "Advances in Neural Information Processing Systems (NeurIPS)"
   year: 2026
   url: "https://arxiv.org/abs/2606.09899"
