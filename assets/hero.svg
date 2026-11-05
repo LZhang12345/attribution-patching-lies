@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="410" viewBox="0 0 1440 410" role="img" aria-labelledby="title desc">
+  <title id="title">When Attribution Patching Lies</title>
+  <desc id="desc">A NeurIPS 2026 paper by Luyang Zhang and Jialu Wang. A schematic contrasts a straight-line attribution estimate with a curved downstream response.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#111c35"/>
+      <stop offset="1" stop-color="#182b44"/>
+    </linearGradient>
+    <linearGradient id="curve" x1="0" x2="1">
+      <stop offset="0" stop-color="#5ce0d0"/>
+      <stop offset="1" stop-color="#8af0b9"/>
+    </linearGradient>
+    <linearGradient id="area" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#63e1c4" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#63e1c4" stop-opacity="0.02"/>
+    </linearGradient>
+  </defs>
+  <rect width="1440" height="410" rx="24" fill="url(#background)"/>
+  <circle cx="1320" cy="20" r="260" fill="#59cabe" opacity="0.035"/>
+  <circle cx="1100" cy="440" r="250" fill="#8b8bfa" opacity="0.045"/>
+  <rect x="60" y="42" width="166" height="32" rx="16" fill="#223c4a" stroke="#42675f"/>
+  <text x="143" y="63" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#9ce6cc" text-anchor="middle" letter-spacing="1.5">NEURIPS 2026</text>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="60" y="145" font-size="57" font-weight="700" fill="#f7fafc" letter-spacing="-1.5">When Attribution</text>
+    <text x="60" y="210" font-size="57" font-weight="700" fill="#f7fafc" letter-spacing="-1.5">Patching Lies</text>
+    <text x="62" y="261" font-size="26" fill="#b9cbdc">Diagnosis and a Second-Order Correction</text>
+    <text x="62" y="311" font-size="18" fill="#9eafc5">Estimate intervention effects. Account for downstream curvature.</text>
+    <text x="62" y="363" font-size="18" fill="#dbe5ee">Luyang Zhang <tspan fill="#758ca7"> / </tspan> Jialu Wang</text>
+    <text x="925" y="78" font-size="14" font-weight="700" letter-spacing="2" fill="#a8bad1">DOWNSTREAM RESPONSE</text>
+    <path d="M925 310 H1350 M925 310 V106" fill="none" stroke="#53627a" stroke-width="1.5"/>
+    <path d="M925 310 L1340 244" fill="none" stroke="#9eabc5" stroke-width="3" stroke-dasharray="8 8"/>
+    <path d="M925 310 C1050 291 1168 265 1248 206 C1284 178 1316 135 1340 100 L1340 244 Z" fill="url(#area)"/>
+    <path d="M925 310 C1050 291 1168 265 1248 206 C1284 178 1316 135 1340 100" fill="none" stroke="url(#curve)" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="925" cy="310" r="5" fill="#e6f4ef"/>
+    <text x="1155" y="144" font-size="18" fill="#8af0c4">curvature matters</text>
+    <text x="1158" y="279" font-size="16" fill="#aebbd0">first-order estimate</text>
+    <text x="1132" y="344" text-anchor="middle" font-size="14" fill="#8298b2">intervention strength</text>
+    <text x="1348" y="379" text-anchor="end" font-size="12" fill="#7189a4">Schematic illustration</text>
+  </g>
+</svg>

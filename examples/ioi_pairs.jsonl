@@ -1,0 +1,2 @@
+{"clean":"When John and Mary went to the store, John gave a book to","corrupt":"When Mary and John went to the store, Mary gave a book to","correct":" Mary","counterfactual":" John"}
+{"clean":"When Sarah and Robert went to the park, Sarah handed a drink to","corrupt":"When Robert and Sarah went to the park, Robert handed a drink to","correct":" Robert","counterfactual":" Sarah"}

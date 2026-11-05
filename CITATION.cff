@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below."
+title: "When Attribution Patching Lies: Diagnosis and a Second-Order Correction"
+type: software
+version: 0.1.0
+date-released: "2026-11-04"
+license: MIT
+authors:
+  - family-names: Zhang
+    given-names: Luyang
+  - family-names: Wang
+    given-names: Jialu
+repository-code: "https://github.com/LZhang12345/attribution-patching-lies"
+url: "https://arxiv.org/abs/2606.09899"
+preferred-citation:
+  type: conference-paper
+  title: "When Attribution Patching Lies: Diagnosis and a Second-Order Correction"
+  authors:
+    - family-names: Zhang
+      given-names: Luyang
+    - family-names: Wang
+      given-names: Jialu
+  collection-title: "Advances in Neural Information Processing Systems"
+  year: 2026
+  url: "https://arxiv.org/abs/2606.09899"
