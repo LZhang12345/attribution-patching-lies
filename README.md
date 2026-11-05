@@ -6,7 +6,7 @@
 
 ### Diagnosis and a Second-Order Correction
 
-**[Luyang Zhang](https://github.com/LZhang12345) · Jialu Wang**<br>
+**[Luyang Zhang](https://scholar.google.com/citations?user=lIDmS7oAAAAJ&hl=en) · [Jialu Wang](https://scholar.google.com/citations?user=HOtDeN0AAAAJ&hl=en)**<br>
 **NeurIPS 2026**
 
 [![Paper](https://img.shields.io/badge/arXiv-2606.09899-b31b1b?style=flat-square)](https://arxiv.org/abs/2606.09899)
