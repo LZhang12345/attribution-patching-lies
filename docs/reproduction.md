@@ -76,8 +76,12 @@ implementations of a benchmark baseline.
 ```bash
 python -m pip install -e '.[plots]'
 python scripts/build_readme_assets.py
+python scripts/build_method_animation.py
 ```
 
-The script calls the package's actual estimators and saves both the plot and
-its numerical values. It does not reconstruct a paper figure from summary
-statistics.
+Both scripts call the package's estimators and save numerical values alongside
+their images. The animation draws the first-order estimate, the HVP quadratic
+correction, and the sum of five local MS-HVP corrections. Its intermediate
+segments accumulate estimated changes; they do not use exact intervention
+effects to reset the curve at each step. A static PNG is included as an
+alternative to the looping GIF.

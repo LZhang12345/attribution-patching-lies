@@ -1,0 +1,55 @@
+{
+  "example": "analytic illustration, not a language-model benchmark",
+  "function": "t + 2*t^2 + 0.2*t^3",
+  "activation_patching": 3.2,
+  "atp": 1.0,
+  "hvp": 3.0,
+  "quadratic": 2.0,
+  "ms_hvp": 3.192,
+  "steps": 5,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.2,
+      "estimated_change_before_segment": 0.0,
+      "first_order": 0.2,
+      "quadratic": 0.08000000000000002
+    },
+    {
+      "start": 0.2,
+      "end": 0.4,
+      "estimated_change_before_segment": 0.28,
+      "first_order": 0.3648,
+      "quadratic": 0.08480000000000001
+    },
+    {
+      "start": 0.4,
+      "end": 0.6,
+      "estimated_change_before_segment": 0.7296,
+      "first_order": 0.5391999999999999,
+      "quadratic": 0.08959999999999996
+    },
+    {
+      "start": 0.6,
+      "end": 0.8,
+      "estimated_change_before_segment": 1.3583999999999998,
+      "first_order": 0.7232000000000002,
+      "quadratic": 0.09440000000000005
+    },
+    {
+      "start": 0.8,
+      "end": 1.0,
+      "estimated_change_before_segment": 2.176,
+      "first_order": 0.9168,
+      "quadratic": 0.09919999999999995
+    }
+  ],
+  "animation": {
+    "frames": 83,
+    "duration_ms": 12900,
+    "size": [
+      1200,
+      650
+    ]
+  }
+}

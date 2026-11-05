@@ -23,7 +23,7 @@ classifiers = [
 
 [project.optional-dependencies]
 models = ["transformers>=4.45,<6", "safetensors>=0.4"]
-plots = ["matplotlib>=3.8", "numpy>=1.26"]
+plots = ["matplotlib>=3.8", "numpy>=1.26", "pillow>=10"]
 dev = ["pytest>=8", "ruff>=0.9", "build>=1.2"]
 
 [project.urls]
